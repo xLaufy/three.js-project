@@ -1,15 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Threejs Website</title>
-  </head>
-  <body>
-     
-    <canvas id="bg"></canvas>
 
-    <script type="module" src="/main.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threejs Website</title>
+</head>
+
+<body>
+
+  <canvas id="bg" style="z-index:-1"></canvas>
+
+  <body>
+    <button class="burger-btn">
+      <div class="burger-btn__box">
+        <div class="burger-btn__bars"></div>
+      </div>
+    </button>
+    <nav class="nav">
+      <div class="nav__items">
+        <a href="#attractions" class="nav__item">Attractions</a>
+        <a href="#offers" class="nav__item">Offers</a>
+        <a href="#reviews" class="nav__item">Reviews</a>
+        <a href="#contact" class="nav__item">Contact</a>
+      </div>
+    </nav>
+    <header class="header section">
+      <h1 class="header__heading">MarsDive</h1>
+      <p class="header__text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+      <a href="#offers" class="header__btn btn-special-animation">Our Offer</a>
+      <div class="white-block white-block-left"></div>
+    </header>
+
+    <main class="main">
+      <section class="dreams section-padding section white-section">
+        <div class="wrapper">
+          <h2 class="section-heading">Where dreams come true</h2>
+
+          <div class="dreams__box">
+            <div class="dreams__box-img">
+              <img src="./img/pexels-jake-young-732894.jpg" alt="Two people on mars" class="dreams__img" />
+            </div>
+            <div class="dreams__box-text">
+              <h3 class="dreams__title">Adrenaline driven holiday</h3>
+              <p class="dreams__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+                rem iusto, voluptates, sit animi vero consectetur tempora
+                placeat sequi, quod magni neque. Culpa fugit illo atque quod vel
+                quae. Fugiat?
+              </p>
+            </div>
+          </div>
+
+          <div class="dreams__box">
+            <div class="dreams__box-img dreams__box-img--right">
+              <img src="./img/nasa-E7q00J_8N7A-unsplash.jpg" alt="Crater on mars " class="dreams__img" />
+            </div>
+            <div class="dreams__box-text dreams__box-text--right">
+              <h3 class="dreams__title">Adrenaline driven holiday</h3>
+              <p class="dreams__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+                rem iusto, voluptates, sit animi vero consectetur tempora
+                placeat sequi, quod magni neque. Culpa fugit illo atque quod vel
+                quae. Fugiat?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-img section">
+        <div class="white-block white-block-left"></div>
+        <div class="white-block white-block-right"></div>
+        <p class="hero-img__title">MarsDive</p>
+        <hr />
+        <p class="hero-img__text">The only such place in our solar system</p>
+        <hr />
+      </section>
+
+      <section class="attractions section-padding section white-section" id="attractions">
+        <div class="wrapper">
+          <h2 class="section-heading">Our attractions</h2>
+
+          <div class="attractions__cards">
+
+
+            <div class="attractions__card" onclick="void(0)">
+              <div class="attractions__card-img attractions__card-img--first">
+                <h3 class="attractions__card-img-title">Fobos</h3>
+                <p class="attractions__card-img-info">
+                  <i class="fas fa-angle-double-right"></i>More info
+                </p>
+              </div>
+
+              <div class="attractions__card-info">
+                <h3 class="attractions__card-info-title">Fobos</h3>
+                <ul class="attractions__card-info-list">
+                  <li class="attractions__card-info-list-item">Bigger Moon</li>
+                  <li class="attractions__card-info-list-item">View on Mars</li>
+                  <li class="attractions__card-info-list-item">Low gravity</li>
+                  <li class="attractions__card-info-list-item">0 atmosphere</li>
+                  <li class="attractions__card-info-list-item">
+                    Campfire under the dome
+                  </li>
+                </ul>
+
+                <button class="attractions__card-info-btn btn-special-animation">
+                  Pick
+                </button>
+              </div>
+            </div>
+
+            <div class="attractions__card" onclick="void(0)">
+              <div class="attractions__card-img attractions__card-img--second">
+                <h3 class="attractions__card-img-title">Oasis</h3>
+                <p class="attractions__card-img-info">
+                  <i class="fas fa-angle-double-right"></i>More info
+                </p>
+              </div>
+
+              <div class="attractions__card-info">
+                <h3 class="attractions__card-info-title">Oasis</h3>
+                <ul class="attractions__card-info-list">
+                  <li class="attractions__card-info-list-item">
+                    First river on Mars
+                  </li>
+                  <li class="attractions__card-info-list-item">
+                    Exclusive DrinkBar
+                  </li>
+                  <li class="attractions__card-info-list-item">Kayaks</li>
+                  <li class="attractions__card-info-list-item">Marsian sky</li>
+                  <li class="attractions__card-info-list-item">
+                    Low gravity voleyball
+                  </li>
+                </ul>
+
+                <button class="attractions__card-info-btn btn-special-animation">
+                  Pick
+                </button>
+              </div>
+            </div>
+            <div class="attractions__card" onclick="void(0)">
+              <div class="attractions__card-img attractions__card-img--third">
+                <h3 class="attractions__card-img-title">Hellas Planitia</h3>
+                <p class="attractions__card-img-info">
+                  <i class="fas fa-angle-double-right"></i>More info
+                </p>
+              </div>
+
+              <div class="attractions__card-info">
+                <h3 class="attractions__card-info-title">Hellas Planitia</h3>
+                <ul class="attractions__card-info-list">
+                  <li class="attractions__card-info-list-item">Bigger Moon</li>
+                  <li class="attractions__card-info-list-item">View on Mars</li>
+                  <li class="attractions__card-info-list-item">Low gravity</li>
+                  <li class="attractions__card-info-list-item">0 atmosphere</li>
+                  <li class="attractions__card-info-list-item">
+                    Campfire under the dome
+                  </li>
+                </ul>
+
+                <button class="attractions__card-info-btn btn-special-animation">
+                  Pick
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="offers section-padding section" id="offers">
+
+        <div class="white-block white-block-right"></div>
+        <div class="white-block white-block-left"></div>
+
+        <h2 class="section-heading">Offers</h2>
+        <div class="wrapper">
+
+          <div class="offers__box">
+
+            <div class="offers__option">
+              <img src="./img/campfire.jpg" alt="Campfire on mars" class="offers__option-img">
+              <div class="offers__option-info">
+                <h3 class="offers__option-heading">Campfire</h3>
+                <p class="offers__option-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Incidunt reiciendis cumque dolor quo, alias magnam deserunt sapiente perspiciatis
+                  explicabo maiores!</p>
+
+                <p class="offers__option-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button class="offers__option-btn btn-special-animation">Pick</button>
+              </div>
+            </div>
+            <div class="offers__option">
+              <img src="./img/campfire.jpg" alt="Campfire on mars" class="offers__option-img offers__option-img--right">
+              <div class="offers__option-info">
+                <h3 class="offers__option-heading">Campfire</h3>
+                <p class="offers__option-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Incidunt reiciendis cumque dolor quo, alias magnam deserunt sapiente perspiciatis
+                  explicabo maiores!</p>
+
+                <p class="offers__option-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button class="offers__option-btn btn-special-animation">Pick</button>
+              </div>
+            </div>
+            <div class="offers__option">
+              <img src="./img/campfire.jpg" alt="Campfire on mars" class="offers__option-img">
+              <div class="offers__option-info">
+                <h3 class="offers__option-heading">Campfire</h3>
+                <p class="offers__option-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Incidunt reiciendis cumque dolor quo, alias magnam deserunt sapiente perspiciatis
+                  explicabo maiores!</p>
+
+                <p class="offers__option-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button class="offers__option-btn btn-special-animation">Pick</button>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        
+      </section>
+
+
+      <section class="reviews section-padding section white-section" id="reviews">
+        <h2 class="section-heading">Opinions</h2>
+        <div class="wrapper">
+          <div class="reviews__boxes">
+            <div class="reviews__box">
+              <div class="reviews__box-img">
+                <img src="./img/rev1.jpg" alt="Tanja Galupe">
+              </div>
+              <div class="reviews__box-info">
+                <div class="reviews__box-quote"> <i class="fas fa-quote-right"></i></div>
+                <p class="reviews__box-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Pariatur aliquid nulla officia veritatis vitae consequatur. Facilis nihil placeat
+                  voluptatibus tenetur?</p>
+                <strong>Tanja Galupe</strong>
+              </div>
+            </div>
+
+            <div class="reviews__box">
+              <div class="reviews__box-img">
+                <img src="./img/rev2.jpg" alt="Serj Novak">
+              </div>
+              <div class="reviews__box-info">
+                <div class="reviews__box-quote"> <i class="fas fa-quote-right"></i></div>
+                <p class="reviews__box-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Pariatur aliquid nulla officia veritatis vitae consequatur. Facilis nihil placeat
+                  voluptatibus tenetur?</p>
+                <strong>Serj Novak</strong>
+              </div>
+            </div>
+
+            <div class="reviews__box">
+              <div class="reviews__box-img">
+                <img src="./img/rev3.jpg" alt="Maria Kosova">
+              </div>
+              <div class="reviews__box-info">
+                <div class="reviews__box-quote"> <i class="fas fa-quote-right"></i></div>
+                <p class="reviews__box-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Pariatur aliquid nulla officia veritatis vitae consequatur. Facilis nihil placeat
+                  voluptatibus tenetur?</p>
+                <strong>Maria Kosova</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </section>
+
+
+      <section id="contact" class="contact section-padding section white-section">
+    
+          <div class=" white-block white-block-left">
+        </div>
+        <div class="white-block white-block-right"></div>
+
+
+        <h2 class="section-heading">Contact</h2>
+
+        <div class="wrapper">
+
+          <form action="" class="contact__form">
+            <div class="contact__form-top">
+
+              <label for="name" class="contact__form-label">Name & Surname</label>
+              <input type="text" class="contact__form-input" id="name">
+
+              <label for="email" class="contact__form-label">E-mail</label>
+              <input type="text" class="contact__form-input" id="name">
+            </div>
+            <label for="msg" class="contact__form-label">Message</label>
+            <textarea name="msg" id="msg" class="contact__form-textarea"></textarea>
+
+            <button type="submit" class="contact__form-btn btn-special-animation">Send</button>
+
+
+
+          </form>
+        </div>
+
+
+      </section>
+
+      <footer class="footer">
+
+        <div class="wrapper">
+          <div class="footer__boxes">
+
+            <div class="footer__box">
+              <h3 class="footer__box-title"><i class="fas fa-kiwi-bird"></i> TP Co.</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quam nulla, blanditiis
+                aliquam eveniet quasi aut magnam vitae nesciunt quas.</p>
+              <div class="footer__box-social"><a href="#" class="footer__box-link"><i
+                    class="fab fa-twitter-square"></i></a><a href="#" class="footer__box-link"><i
+                    class="fab fa-facebook-square"></i></a><a href="#" class="footer__box-link"><i
+                    class="fab fa-instagram"></i></a></div>
+            </div>
+
+            <div class="footer__box footer__box-desktop">
+              <h3 class="footer__box-title">Attractions</h3>
+              <ul class="footer__box-list">
+                <li class="footer__box-list-item"><a href="#"></a></li>
+                <li class="footer__box-list-item"><a href="#"></a></li>
+                <li class="footer__box-list-item"><a href="#"></a></li>
+                <li class="footer__box-list-item"><a href="#"></a></li>
+              </ul>
+            </div>
+
+            <div class="footer__box footer__box-desktop">
+              <h3 class="footer__box-title">About</h3>
+              <ul class="footer__box-list">
+                <li class="footer__box-list-item"><a href="#"></a></li>
+                <li class="footer__box-list-item"><a href="#"></a></li>
+                <li class="footer__box-list-item"><a href="#"></a></li>
+                <li class="footer__box-list-item"><a href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <p class="footer__bottom-text"> &copy; MarsDive <span class="footer__year"></span></p>
+
+      </footer>
+
+    </main>
   </body>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
