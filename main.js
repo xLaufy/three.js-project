@@ -102,7 +102,7 @@ scene.background = skybox
 
 // Avatar
 
-const miloszTexture = new THREE.TextureLoader().load('../milosz.jpg')
+const miloszTexture = new THREE.TextureLoader().load('milosz.jpg')
 
 const milosz = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: miloszTexture }))
 scene.add(milosz)
@@ -111,7 +111,7 @@ milosz.position.set(0, 25, 0)
 
 // Mars
 
-const marsTexture = new THREE.TextureLoader().load('../mars.jpg')
+const marsTexture = new THREE.TextureLoader().load('mars.jpg')
 const mars = new THREE.Mesh(
 	new THREE.SphereGeometry(3, 32, 32),
 	new THREE.MeshStandardMaterial({
@@ -161,7 +161,7 @@ function onWindowResize() {
 	renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
-// Torus Knot aMesh(animation
+// Torus Knot Mesh(animation
 function animate() {
 	requestAnimationFrame(animate)
 	renderer.render(scene, camera)
