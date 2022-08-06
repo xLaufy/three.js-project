@@ -1,4 +1,3 @@
-
 import * as THREE from 'three'
 
 import './style.css'
@@ -7,6 +6,7 @@ import { mapLinear } from 'three/src/math/MathUtils'
 import { arraySlice } from 'three/src/animation/AnimationUtils'
 import { BoxGeometry } from 'three'
 import { Reflector } from 'three/examples/jsm/objects/Reflector.js'
+import { ShaderLib } from 'three'
 
 const scene = new THREE.Scene()
 
@@ -24,8 +24,26 @@ let renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
 camera.position.setZ(30)
+document.body.appendChild( renderer.domElement );
 
-renderer.render(scene, camera)
+
+// window auto resize
+
+const handleResize = () => {
+	const { innerWidth, innerHeight } = window
+	renderer.setSize(innerWidth, innerHeight)
+	camera.aspect = innerWidth / innerHeight
+	camera.updateProjectionMatrix()
+}
+
+const loop = () => {
+	renderer.render(scene, camera);
+	requestAnimationFrame(loop)
+}
+
+loop()
+window.addEventListener('resize', handleResize)
+
 
 // Torus Knot
 
@@ -65,18 +83,22 @@ function addStar() {
 
 	const [x, y, z] = Array(3)
 		.fill()
-		.map(() => THREE.MathUtils.randFloatSpread(100))
+		.map(() => THREE.MathUtils.randFloatSpread(500))
 
 	star.position.set(x, y, z)
 	scene.add(star)
 }
 
-Array(200).fill().forEach(addStar)
+Array(2000).fill().forEach(addStar)
 
-// Background textures
+// Background textures/ SkyBox
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg')
-scene.background = spaceTexture
+const loader = new THREE.CubeTextureLoader()
+loader.setPath('./skybox_images/')
+
+const skybox = loader.load(['right.png', 'left.png', 'top.png', 'bottom.png', 'front.png', 'back.png'])
+
+scene.background = skybox
 
 // Avatar
 
@@ -100,6 +122,7 @@ const mars = new THREE.Mesh(
 mars.position.z = 30
 mars.position.setX(-10)
 scene.add(mars)
+
 // Mirror effect
 
 const geometryMirror = new THREE.PlaneBufferGeometry(230, 230)
@@ -118,20 +141,25 @@ scene.add(verticalMirror)
 // Camera move on scrolling
 
 function moveCamera() {
+	const t = document.body.getBoundingClientRect().top
+	mars.rotation.x += 0.05
+	mars.rotation.y += 0.075
+	mars.rotation.z += 0.05
 
-   const t = document.body.getBoundingClientRect().top
-   mars.rotation.x += 0.05
-   mars.rotation.y += 0.075
-   mars.rotation.z += 0.05
+	milosz.rotation.y += 0.01
+	milosz.rotation.z += 0.01
 
-   milosz.rotation.y += 0.01
-   milosz.rotation.z += 0.01
-
-   camera.rotation.x += -0.01
-   camera.rotation.y += -0.0002
-   camera.rotation.z += -0.0002
+	camera.rotation.x += -0.01
+	camera.rotation.y += -0.0002
+	camera.rotation.z += -0.0002
 }
 document.body.onscroll = moveCamera
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight
+	camera.updateProjectionMatrix()
+
+	renderer.setSize(window.innerWidth, window.innerHeight)
+}
 
 // Torus Knot aMesh(animation
 function animate() {
@@ -140,6 +168,6 @@ function animate() {
 	torusKnot.rotation.x += 0.01
 	torusKnot.rotation.y += 0.005
 	torusKnot.rotation.z += 0.01
-	spaceTexture.rotation.x += 10000000
 }
 animate()
+
