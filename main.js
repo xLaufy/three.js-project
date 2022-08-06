@@ -94,7 +94,7 @@ Array(2000).fill().forEach(addStar)
 // Background textures/ SkyBox
 
 const loader = new THREE.CubeTextureLoader()
-loader.setPath('./skybox_images/')
+loader.setPath('../skybox_images/')
 
 const skybox = loader.load(['right.png', 'left.png', 'top.png', 'bottom.png', 'front.png', 'back.png'])
 
@@ -102,7 +102,7 @@ scene.background = skybox
 
 // Avatar
 
-const miloszTexture = new THREE.TextureLoader().load('milosz.jpg')
+const miloszTexture = new THREE.TextureLoader().load('../milosz.jpg')
 
 const milosz = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: miloszTexture }))
 scene.add(milosz)
@@ -111,7 +111,7 @@ milosz.position.set(0, 25, 0)
 
 // Mars
 
-const marsTexture = new THREE.TextureLoader().load('mars.jpg')
+const marsTexture = new THREE.TextureLoader().load('../mars.jpg')
 const mars = new THREE.Mesh(
 	new THREE.SphereGeometry(3, 32, 32),
 	new THREE.MeshStandardMaterial({
@@ -125,7 +125,7 @@ scene.add(mars)
 
 // Mirror effect
 
-const geometryMirror = new THREE.PlaneBufferGeometry(230, 230)
+const geometryMirror = new THREE.SphereBufferGeometry(50, 50, 50)
 const verticalMirror = new Reflector(geometryMirror, {
 	textureWidth: 1024,
 	textureHeight: 1024,
@@ -149,9 +149,9 @@ function moveCamera() {
 	milosz.rotation.y += 0.01
 	milosz.rotation.z += 0.01
 
-	camera.rotation.x += -0.01
-	camera.rotation.y += -0.0002
-	camera.rotation.z += -0.0002
+	camera.rotation.x += t * -0.01
+	camera.rotation.y += t * -0.0002
+	camera.rotation.z += t * -0.0002
 }
 document.body.onscroll = moveCamera
 function onWindowResize() {
